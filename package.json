@@ -1,0 +1,24 @@
+{
+  "name": "solo-leveling-discord-bot",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "start": "nodemon moderator/app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/VedatBaysal/solo-leveling-discord-bot.git"
+  },
+  "author": "Vedat Baysal",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/VedatBaysal/solo-leveling-discord-bot/issues"
+  },
+  "homepage": "https://github.com/VedatBaysal/solo-leveling-discord-bot#readme",
+  "dependencies": {
+    "discord.js": "^12.5.3",
+    "dotenv": "^9.0.2",
+    "nodemon": "^2.0.7"
+  }
+}
