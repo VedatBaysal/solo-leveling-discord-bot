@@ -2,7 +2,7 @@ const rockPaperScissors = (x) => {
   let arr = ['rock', 'paper', 'scissors']
   if (x !== 'rock' && x !== 'paper' && x !== 'scissors')
     return 'Unexpected choose'
-  let rnd = Math.random(0, 3)
+  let rnd = Math.floor(Math.random() * 3)
   switch (x) {
     case 'rock':
       if (arr[rnd] === 'rock') return 'ROCK: Draw'

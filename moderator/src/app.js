@@ -15,7 +15,6 @@ client.on('message', (msg) => {
   let comment = msg.content.slice(1, msg.content.length)
   if (comment === 'rock' || comment === 'paper' || comment === 'scissors') {
     let result = rockPaperScissors(comment)
-    console.log(result)
     msg.reply(result)
   }
   if (comment === 'ping') {
