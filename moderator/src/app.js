@@ -1,4 +1,4 @@
-import { rockPaperScissors } from './commands/rock-paper-scissors.js'
+import { commandRouter } from './router/router.js'
 import dotenv from 'dotenv'
 dotenv.config()
 import dc from 'discord.js'
@@ -13,13 +13,7 @@ client.on('ready', () => {
 client.on('message', (msg) => {
   if (!msg.content.startsWith(prefix)) return
   let comment = msg.content.slice(1, msg.content.length)
-  if (comment === 'rock' || comment === 'paper' || comment === 'scissors') {
-    let result = rockPaperScissors(comment)
-    msg.reply(result)
-  }
-  if (comment === 'ping') {
-    msg.reply('Pong!')
-  }
+  msg.reply(commandRouter(comment))
 })
 
 client.on('presenceUpdate', (oldPresence, newPresence) => {
