@@ -1,3 +1,4 @@
+import ip from 'ip'
 import { commandRouter } from './router/router.js'
 import { parseCommands, parseParameters } from './utils/parser.js'
 import dotenv from 'dotenv'
@@ -8,7 +9,7 @@ const client = new dc.Client()
 const prefix = '!'
 
 client.on('ready', () => {
-  console.log(`Logged in as ${client.user.tag}!`)
+  console.log(`Logged with ${ip.address()} this ip!`)
 })
 
 client.on('message', (msg) => {
