@@ -1,6 +1,6 @@
 import ip from 'ip'
 const serverIp = (client, memberId) => {
-  if (memberId !== process.env.ADMIN) return
+  if (memberId !== process.env.ADMIN) return null
   const user = client.users.cache.get(process.env.ADMIN)
   user.send(`bot connected with ${ip.address()} this ip!`)
 
