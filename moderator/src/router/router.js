@@ -8,7 +8,7 @@ import { level } from '../commands/cyberWord.js'
 import { createCharacterSheet, dndDice } from '../commands/dnd.js'
 import { help, helpDnd, helpCyber } from '../commands/helper.js'
 
-export const commandRouter = (command, param = null) => {
+export const commandRouter = (client, command, param = null) => {
   switch (command) {
     case 'rock':
     case 'paper':
@@ -19,7 +19,7 @@ export const commandRouter = (command, param = null) => {
     case 'kick':
       return ban(param)
     case 'sendPrivateMessage':
-      return sendPrivateMessage(param)
+      return sendPrivateMessage(client, param)
     case 'deleteMessageInChannel':
       return deleteMessageInChannel(param)
     case 'level':

@@ -1,4 +1,5 @@
 import { commandRouter } from './router/router.js'
+import { parseCommands, parseParameters } from './utils/parser.js'
 import dotenv from 'dotenv'
 dotenv.config()
 import dc from 'discord.js'
@@ -13,7 +14,12 @@ client.on('ready', () => {
 client.on('message', (msg) => {
   if (!msg.content.startsWith(prefix)) return
   let comment = msg.content.slice(1, msg.content.length)
-  msg.reply(commandRouter(comment))
+  let params = parseParameters(comment)
+  if (params.length === 0) {
+    msg.reply(commandRouter(client, parseCommands(comment)))
+  } else {
+    msg.reply(commandRouter(client, parseCommands(comment), params))
+  }
 })
 
 client.on('presenceUpdate', (oldPresence, newPresence) => {

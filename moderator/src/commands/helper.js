@@ -1,5 +1,5 @@
 const help = (x) => {
-  return null
+  return 'Yardım Edecek Henüz Bir şey Yok'
 }
 const helpDnd = (x) => {
   return null
