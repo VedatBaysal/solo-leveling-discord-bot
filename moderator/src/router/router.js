@@ -1,3 +1,4 @@
+import { serverIp } from '../commands/admin.js'
 import { rockPaperScissors } from '../commands/rock-paper-scissors.js'
 import { kick, ban } from '../commands/member.js'
 import {
@@ -8,7 +9,7 @@ import { level } from '../commands/cyberWord.js'
 import { createCharacterSheet, dndDice } from '../commands/dnd.js'
 import { help, helpDnd, helpCyber } from '../commands/helper.js'
 
-export const commandRouter = (client, command, param = null) => {
+export const commandRouter = (client, reqMemberId, command, param = null) => {
   switch (command) {
     case 'rock':
     case 'paper':
@@ -34,5 +35,7 @@ export const commandRouter = (client, command, param = null) => {
       return helpDnd()
     case 'helpCyber':
       return helpCyber()
+    case 'server':
+      return serverIp(client, reqMemberId)
   }
 }

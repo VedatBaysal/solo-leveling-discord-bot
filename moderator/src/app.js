@@ -16,11 +16,18 @@ client.on('message', (msg) => {
   if (!msg.content.startsWith(prefix)) return
   let comment = msg.content.slice(1, msg.content.length)
   let params = parseParameters(comment)
+  let result = null
   if (params.length === 0) {
-    msg.reply(commandRouter(client, parseCommands(comment)))
+    result = commandRouter(client, msg.author.id, parseCommands(comment))
   } else {
-    msg.reply(commandRouter(client, parseCommands(comment), params))
+    result = commandRouter(
+      client,
+      msg.author.id,
+      parseCommands(comment),
+      params
+    )
   }
+  if (result) msg.reply(result)
 })
 
 client.on('presenceUpdate', (oldPresence, newPresence) => {
