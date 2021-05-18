@@ -8,6 +8,7 @@ import {
 import { level } from '../commands/cyberWord.js'
 import { createCharacterSheet, dndDice } from '../commands/dnd.js'
 import { help, helpDnd, helpCyber } from '../commands/helper.js'
+import { momentOfIndecision } from '../commands/moment.js'
 
 export const commandRouter = (client, reqMemberId, command, param = null) => {
   switch (command) {
@@ -37,5 +38,7 @@ export const commandRouter = (client, reqMemberId, command, param = null) => {
       return helpCyber()
     case 'server':
       return serverIp(client, reqMemberId)
+    case 'momentOfIndecision':
+      return momentOfIndecision(param)
   }
 }
